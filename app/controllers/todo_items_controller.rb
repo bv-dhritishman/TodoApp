@@ -1,4 +1,5 @@
 class TodoItemsController < ApplicationController
+	http_basic_authenticate_with name: "admin", password: "admin"
 	before_action :set_todo_list
 	before_action :set_todo_item, except: [:create]
 
