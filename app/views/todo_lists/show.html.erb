@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <div class="listcard mdl-card">
-
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text"> <%= @todo_list.title %> </h2>
   </div>
@@ -16,10 +15,10 @@
     <table class="mdl-data-table mdl-js-data-table">
       <%= render @todo_list.todo_items %>      
     </table>
-   <!-- <%= render @todo_list.todo_items %> -->
-   <div class="form">
-    <%= render "todo_items/form" %>
-   </div>
+    
+    <div class="form">
+      <%= render "todo_items/form" %>
+    </div>
   </div>
 
   <div class="mdl-card__actions mdl-card--border">
@@ -31,5 +30,4 @@
       <i class="material-icons">edit</i>
     <% end %> 
   </div>
-
 </div>

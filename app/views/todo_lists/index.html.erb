@@ -4,9 +4,7 @@
 
 <% @todo_lists.each do |todo_list| %>
   <div class="card mdl-card">
-
     <div class="mdl-card__title">
-      <!-- <h2 class="mdl-card__title-text"><%= todo_list.title %></h2> -->
       <%= link_to todo_list.title, todo_list, class: 'mdl-card__title-text' %>
     </div>
 
@@ -24,7 +22,5 @@
 
   <br>
 <% end %>
-
-<br>
 
 <%= link_to 'New Todo List', new_todo_list_path,  class: 'mdl-button mdl-js-button mdl-color--white' %>

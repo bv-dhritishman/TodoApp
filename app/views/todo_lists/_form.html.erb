@@ -1,31 +1,31 @@
 <% if todo_list.errors.any? %>
-    <div class="error mdl-card">
-      <p> <%= pluralize(todo_list.errors.count, "error") %> prohibited this todo_list from being saved: </p>
-
-      <ul>
-        <% todo_list.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="error mdl-card">
+    <p> <%= pluralize(todo_list.errors.count, "error") %> prohibited this todo_list from being saved: </p>
+    
+    <ul>
+      <% todo_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div class="form">
 
-<%= form_with(model: todo_list, local: true) do |form| %>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= form.label :title, class: "mdl-textfield__label" %>
-    <%= form.text_field :title, placeholder: '', class: "mdl-textfield__input" %>
-  </div>
+  <%= form_with(model: todo_list, local: true) do |form| %>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= form.label :title, class: "mdl-textfield__label" %>
+      <%= form.text_field :title, placeholder: '', class: "mdl-textfield__input" %>
+    </div>
 
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= form.label :description, class: "mdl-textfield__label" %>
-    <%= form.text_area :description, placeholder: '', class: "mdl-textfield__input" %>
-  </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= form.label :description, class: "mdl-textfield__label" %>
+      <%= form.text_area :description, placeholder: '', class: "mdl-textfield__input" %>
+    </div>
 
-  <div class="mdl-card__actions mdl-card--border">
-    <%= form.submit class: 'mdl-button mdl-js-button mdl-button--colored' %>
-  </div>
-<% end %>
+    <div class="mdl-card__actions mdl-card--border">
+      <%= form.submit class: 'mdl-button mdl-js-button mdl-button--colored' %>
+    </div>
+  <% end %>
 
 </div>

@@ -1,18 +1,16 @@
 <tr>
   <td class="mdl-data-table__cell--non-numeric">
+
    <% if todo_item.completed == 1 %>
-
-    <%= link_to incomplete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
-        <i class="material-icons">check_circle</i>
-    <% end %>
-
+     <%= link_to incomplete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+       <i class="material-icons">check_circle</i>
+     <% end %>
    <% else %>
-
-    <%= link_to complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
-        <i class="material-icons">radio_button_unchecked</i>
-    <% end %>
-
+     <%= link_to complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+       <i class="material-icons">radio_button_unchecked</i>
+     <% end %>
    <% end %>
+   
   </td>
 
   <td class="mdl-data-table__cell--non-numeric">

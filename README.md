@@ -68,3 +68,8 @@ end
 4. Create controller (`rails g controller todo_items` and write `create` and `destroy` method)
 5. Create views (forms and show)
 6. Add ability to mark items complete/incomplete
+
+---
+
+### Security
+
