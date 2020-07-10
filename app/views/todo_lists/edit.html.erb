@@ -1,6 +1,6 @@
-<h1>Editing Todo List</h1>
+<h3>Editing Todo List</h3>
 
 <%= render 'form', todo_list: @todo_list %>
 
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+<%= link_to 'Show', @todo_list, class: 'mdl-button mdl-js-button mdl-color--white' %>
+<%= link_to 'Back', todo_lists_path, class: 'mdl-button mdl-js-button mdl-color--white' %>

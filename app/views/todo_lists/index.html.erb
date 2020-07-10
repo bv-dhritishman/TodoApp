@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Todo Lists</h1>
+<h2>Todo Lists</h2>
 
-<table>
-  <!-- <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead> -->
+<% @todo_lists.each do |todo_list| %>
+  <div class="card mdl-card">
 
-  <tbody>
-    <% @todo_lists.each do |todo_list| %>
-      <tr>
-        <td><%= todo_list.title %></td>
-        <td><%= todo_list.description %></td>
-        <td><%= link_to 'Show', todo_list %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="mdl-card__title">
+      <!-- <h2 class="mdl-card__title-text"><%= todo_list.title %></h2> -->
+      <%= link_to todo_list.title, todo_list, class: 'mdl-card__title-text' %>
+    </div>
+
+    <% if todo_list.description != '' %>
+      <div class="mdl-card__supporting-text">
+        <%= todo_list.description %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+
+    <div class="mdl-card__actions mdl-card--border">
+      <%= link_to 'Edit', edit_todo_list_path(todo_list), class: 'mdl-button mdl-js-button' %>
+      <%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?'}, class: 'mdl-button mdl-js-button' %>
+    </div>
+  </div>
+
+  <br>
+<% end %>
 
 <br>
 
-<%= link_to 'New Todo List', new_todo_list_path %>
+<%= link_to 'New Todo List', new_todo_list_path,  class: 'mdl-button mdl-js-button mdl-color--white' %>

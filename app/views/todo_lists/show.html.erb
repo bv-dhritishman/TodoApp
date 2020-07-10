@@ -1,23 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @todo_list.title %>
-</p>
+<div class="listcard mdl-card">
 
-<% if @todo_list.description != '' %>
-<p>
-  <strong>Description:</strong>
-  <%= @todo_list.description %>
-</p>
-<% end %>
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text"> <%= @todo_list.title %> </h2>
+  </div>
 
-<div id="todo_items_wrapper">
- <%= render @todo_list.todo_items %>
- <div id="form">
-  <%= render "todo_items/form" %>
- </div>
+  <% if @todo_list.description != '' %>
+    <div class="mdl-card__supporting-text">
+      <%= @todo_list.description %>
+    </div>
+  <% end %>
+
+  <div>
+    <table class="mdl-data-table mdl-js-data-table">
+      <%= render @todo_list.todo_items %>      
+    </table>
+   <!-- <%= render @todo_list.todo_items %> -->
+   <div class="form">
+    <%= render "todo_items/form" %>
+   </div>
+  </div>
+
+  <div class="mdl-card__actions mdl-card--border">
+    <%= link_to 'Back', todo_lists_path, class: 'mdl-button msl-js-button mdl-color--white' %>
+  </div>
+
+  <div class="mdl-card__menu">
+    <%= link_to edit_todo_list_path(@todo_list) do %>
+      <i class="material-icons">edit</i>
+    <% end %> 
+  </div>
+
 </div>
-
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>

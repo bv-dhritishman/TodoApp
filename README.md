@@ -29,16 +29,16 @@ We can have nested resources which creates logical relations between resources.
 
 ```ruby
 resources :todo_list do
-	resources :todo_items
+  resources :todo_items
 end
 ```
 
 We can add more member routes by adding the member block to the resource block.
 ```ruby
 resources :todo_items do
-	member do
-		patch :complete, :incomplete
-	end
+  member do
+    patch :complete, :incomplete
+  end
 end
 ```
 
