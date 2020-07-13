@@ -73,3 +73,30 @@ end
 
 ### Security
 
+Below listed are some attacks and their countermeasures.
+
+- Session Hacking (Cookie sniffing):
+	- Force SSL: In config file do `config.force_ssl = true`
+	- Provide _Log-Out button_ and make it _prominent_.
+	- Rotating encrypted and signed configurations.
+	- Not store credit information in session to avoid Replay attacks.
+	- Session Fixation: Reset session during sign-in and sign out.
+	- Set expiry to sessions.
+- CSRF (cross-site request forgery):
+	- Add required security token
+	- destroy previous cookies.
+
+	> Cross-site scripting (XSS) vulnerabilities can bypass all CSRF protections.
+
+- Redirection and Files: Redirect users to phishing links
+	- allow only select parameters
+	- Do not allow the user to supply (parts of) the URL to be redirected to.
+	- File uploads should not overwrite important files. Check for valid file names.
+	- Process files asynchronously as synchronous processing are vulnerable of DOS attacks.
+	- Users cannot download arbitrary files.
+- Intranet and Admin security
+	- Add special passwords in the admin interface.
+	- Limit login to some IP addresses only. Although one may bypass this using proxy.
+	- Make special separate domain for admin interface.
+- User Management:
+	- Use common up-to-date plugins for authorization and authentication instead of making on your own.
