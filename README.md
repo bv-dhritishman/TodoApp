@@ -100,3 +100,21 @@ Below listed are some attacks and their countermeasures.
 	- Make special separate domain for admin interface.
 - User Management:
 	- Use common up-to-date plugins for authorization and authentication instead of making on your own.
+	- Display generic error message such as 'username or password not correct' instead of 'username not found'. We can add CAPTCHA after a number fo failed logins from a single IP address.
+	- Make change-password form safe against CSRF and require to enter the old password.
+	- Require user to enter password while changing email.
+	- Review application logic and eliminate all CSRF and XSS vulnerabilities.
+	- Add positive and negative CAPTCHAs to avoid bots.
+	- Donot puts passwords/credentials and other sensitive data in log files. Use filters.
+	- In Ruby regex, ^ and $ match line beginning and ending. Use \A and \z to match string beginning and ending.
+	- No user input data is secure, until proven otherwise, and every parameter from the user can be potentially manipulated. Query user's access rights.
+- Injection
+	- While sanitizing, verifying something, prefer permitted lists over restricted lists. Use before_action except: instead of only: so we don't forget to enable security checks in newly added actions.
+	- **SQL injection**: Influencing database queries by manipulationg web application parameters. Use countermeasures such as `Model.find(id)` or `Model.find_by_some_thing(something)`, `Model.where("login = ? AND password = ?", entered_user_name, entered_password).first` or `Model.where(login: entered_user_name, password: entered_password).first`, `sanitize_sql()`.
+	- **Cross-site scripting (XSS)**: An attacker injects some code, the web application saves it and displays it on a page, later presented to a victim.
+		- Temporary fix to cookie theft is using httponly cookie.
+	Filter malicious input. Use permitted list instead of restricted list. Rails' sanitize() methods fends off encoding attacks.
+	- **CSS injection**: Think twice before allowing custom CSS in the web app. This is possible as some browsers allowed JS in CSS. Using Rails' `sanitize()` method as a model for permitted CSS filter.
+	- **Textile injection**: Use permitter input filters when using some other mark-up language which is being converted to HTML.
+	- **Ajax injection**: While using actions that return a string, rather than rendering a view, you have to escape the return value in the action.
+	- **Command line injection**: If command line is necessary use `system`.
